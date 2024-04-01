@@ -1,0 +1,25 @@
+package com.insuranceapp.controllers;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+
+import com.insuranceapp.model.AppUser;
+import com.insuranceapp.model.AppUserMapper;
+
+public class AppUserController {
+	
+	@Autowired
+	private AppUserMapper appUserMapper;
+	
+	
+	
+	// check if username is available
+	//  if so generate jwt token and return it
+	@PostMapping("/authenticate")
+	ResponseEntity<String> authenticatorUser(@RequestBody AppUser appUser) {
+		AppUser user = appUserServiceImpl.loadUserByUsername(appUser.getUsername)
+	}
+
+}

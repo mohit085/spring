@@ -1,0 +1,5 @@
+package com.greetapp.config;
+
+public class WebConfig {
+
+}

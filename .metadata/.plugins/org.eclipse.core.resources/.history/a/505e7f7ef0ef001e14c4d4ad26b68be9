@@ -1,0 +1,65 @@
+package com.insuranceapp.controllers;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.security.authentication.AuthenticationManager;
+import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.security.provisioning.UserDetailsManager;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.insuranceapp.model.AppUser;
+import com.insuranceapp.model.AppUserMapper;
+import com.insuranceapp.util.JwtTokenUtil;
+
+@RestController
+@RequestMapping("/user-api/v1")
+public class AppUserController {
+	
+	
+	@Autowired
+	private UserDetailsManager appUserServiceImpl;
+	
+	@Autowired
+	AuthenticationManager authenticationManager;
+	
+	@Autowired
+	private PasswordEncoder encoder;
+	
+	@Autowired
+	JwtTokenUtil tokenUtil;
+	
+	@Autowired
+	private AppUserMapper appUserMapper;
+	
+	
+	// this url will be allowed by default
+	@PostMapping("/register")
+	ResponseEntity<Void> createUser(@RequestBody AppUser appUser) {
+		// convert appUser to UserDetails
+		UserDetails details = appUserMapper.convertToUserDetails(appUser);
+		appUserServiceImpl.createUser(details);
+		return ResponseEntity.status(HttpStatus.
+	}
+	
+	
+	
+	// check if username is available
+	//  if so generate jwt token and return it
+	@PostMapping("/authenticate")
+	ResponseEntity<String> authenticatorUser(@RequestBody AppUser appUser) {
+		System.out.println(appUser);
+		authenticate(appUser.getUsername())
+	}
+	
+	
+	// convert UserDetails to AppUser
+	public AppUser convertToAppUser(UserDetails userDetails) {
+		String username = userDetails.getUsername();
+	}
+
+}

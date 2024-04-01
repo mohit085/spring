@@ -1,0 +1,14 @@
+package com.insuranceapp.repository;
+
+import org.apache.ibatis.annotations.Insert;
+import org.apache.ibatis.annotations.Mapper;
+
+import com.insuranceapp.model.Insurance;
+
+@Mapper
+public interface IInsuranceRepository {
+	
+	@Insert("insert into product(policyName,brand,price,category) values(#{productName},#{brand},#{price},#{category})")
+	void addProduct(Insurance insurance);  //create
+
+}

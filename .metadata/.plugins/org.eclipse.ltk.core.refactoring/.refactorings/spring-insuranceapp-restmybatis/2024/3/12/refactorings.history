@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename resource &apos;spring-insuranceapp-restmybatis/target/spring-insuranceapp-restmybatis-0.0.1-SNAPSHOT.jar&apos; to &apos;insuranceapp.jar&apos;" description="Rename resource &apos;spring-insuranceapp-restmybatis-0.0.1-SNAPSHOT.jar&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="target/spring-insuranceapp-restmybatis-0.0.1-SNAPSHOT.jar" name="insuranceapp.jar" stamp="1711096250270" updateReferences="true"/>
+</session>
